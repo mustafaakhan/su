@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project</title>
+      <style>
+      * {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+ Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body img {
+  border-radius: 2px;
+  margin-top: 50px;
+  width: 25%;
+  height: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+body .row {
+  margin-top: 64px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .btnNo {
+  display: block;
+}
+
+body button {
+  padding: 4px;
+}
+
+@media screen and (max-width: 768px) {
+  body img {
+    width: 90%;
+  }
+  body .row {
+    width: 50%;
+  }
+}
+      </style>
+  </head>
+
+  <body>
+    <h1>Sana aşkım diyebilir miyim?</h1>
+    <img src="https://c.tenor.com/zGm5acSjHCIAAAAC/cat-begging.gif" alt="" />
+    <div class="row">
+      <button class="btnYes">Olurrr</button>
+      <button class="btnNo">Daha erken</button>
+    </div>
+    <script>
+      let btnYes = document.querySelector(".btnYes");
+let btnNo = document.querySelector(".btnNo");
+
+const c = document.querySelector(".container");
+const b = document.querySelector("button");
+
+function change() {
+  console.log("ahanda")
+  btnNo.style.position = "absolute";
+  const { width: cWidth, height: cHeight } = document.querySelector("body").getBoundingClientRect(),
+    { width: bWidth, height: bHeight } = btnNo.getBoundingClientRect(),
+    i = Math.floor(Math.random() * (cWidth - bWidth)) + 1,
+    j = Math.floor(Math.random() * (cHeight - bHeight)) + 1;
+
+  btnNo.style.left = i + "px";
+  btnNo.style.top = j + "px";
+}
+
+btnNo.addEventListener("mouseover", change);
+
+btnYes.addEventListener("click", () => {
+  alert("TEŞEKKÜR EDERİM AŞKIMM");
+});
+
+      </script>
+  </body>
+</html>
